@@ -66,12 +66,12 @@ def home_callback():
 
 if __name__ == "__main__":
     
-    pages = {"home":home,"signup":signup_page,"signin":signin_page}
-    
-    if 'current_page' not in st.session_state:
-        st.session_state['current_page'] = "home"
-    
-    pages[st.session_state['current_page']]()
+        pages = {"home":home,"signup":signup_page,"signin":signin_page}
+        
+        if 'current_page' not in st.session_state:
+            st.session_state['current_page'] = "home"
+        
+        pages[st.session_state['current_page']]()
     
     
     
