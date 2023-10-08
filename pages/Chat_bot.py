@@ -26,7 +26,7 @@ if prompt := st.chat_input("Enter your message"):
         st.markdown(response)   
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
-
+    
 
 # Sidebar
 
