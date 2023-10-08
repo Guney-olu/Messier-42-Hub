@@ -2,13 +2,15 @@ import streamlit as st
 
 
 
-def main():
 
+
+def home():
+
+    if 'logged_in' not in st.session_state:
+        st.session_state['logged_in'] = False
+        st.session_state['user'] = 'none'
     st.image('./media/athena.jpeg')
     st.markdown('# Athen.ai')
-
-    st.button(':green[Sign Up]')
-    st.button(':blue[Sign In]')
 
     st.markdown("""
 
@@ -44,7 +46,32 @@ Athen.ai's intelligent platform enables seamless collaboration:
 
 Athen.ai is your gateway to a world of scientific collaboration. Join our community today, find your next scientific adventure, and embark on a journey of discovery and innovation. Experience the power of open science collaboration with Athen.ai!""")
 
+def signup_page():
+
+    st.markdown("# Signup")
+
+def signin_page():
+
+    st.markdown("# Signin")
+
+def signup_callback():
+    st.session_state['current_page'] = "signup"
     
+def signin_callback():
+    st.session_state['current_page'] = "signin"
+def home_callback():
+    st.session_state['current_page'] = 'home'
+
+
 
 if __name__ == "__main__":
-    main()
+    
+    pages = {"home":home,"signup":signup_page,"signin":signin_page}
+    
+    if 'current_page' not in st.session_state:
+        st.session_state['current_page'] = "home"
+    
+    pages[st.session_state['current_page']]()
+    
+    
+    
